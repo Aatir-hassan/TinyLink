@@ -11,7 +11,7 @@ export default function Stats() {
   useEffect(() => {
     async function load() {
       setLoading(true);
-      const res = await fetch(`http://localhost:5000/api/links/${code}`);
+      const res = await fetch(`${API_BASE}/api/links/${code}`);
       if (res.status === 404) {
         setLink(null);
         setLoading(false);
@@ -80,7 +80,7 @@ export default function Stats() {
           Copy short URL
         </button>
         <a
-          href={`http://localhost:5000/${link.code}`}
+          href={`${API_BASE}/api/links/${link.code}`}
           target="_blank"
           rel="noreferrer"
           className="px-3 py-2 border rounded text-sky-600"

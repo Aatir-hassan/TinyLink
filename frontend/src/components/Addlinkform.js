@@ -25,7 +25,7 @@ export default function AddLinkForm({ onCreate }) {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/links", {
+      const res = await fetch(`${API_BASE}/api/links`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ target, code: code || undefined }),

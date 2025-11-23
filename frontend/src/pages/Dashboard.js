@@ -11,7 +11,7 @@ export default function Dashboard() {
   async function fetchLinks() {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/links");
+      const res = await fetch(`${API_BASE}/api/links`);
 ;
       const data = await res.json();
       setLinks(data);
@@ -35,7 +35,7 @@ export default function Dashboard() {
     if (!window.confirm(`Delete ${code}?`)) return;
       // const res = await fetch(`${API_BASE}/api/links/${code}`, {
       
-        const res = await fetch(`http://localhost:5000/api/links/${code}`,{
+        const res = await fetch(`${API_BASE}/api/links/${code}`,{
       method: "DELETE",
     });
     if (res.ok) {
