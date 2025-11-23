@@ -27,7 +27,8 @@ export default function Stats() {
   if (loading) return <div>Loading…</div>;
   if (!link) return <div className="text-red-600">Link not found</div>;
 
-  const shortUrl = `${window.location.origin}/${link.code}`;
+  // IMPORTANT: short URL must point to BACKEND, not frontend
+  const shortUrl = `${API_BASE}/${link.code}`;
 
   return (
     <div className="bg-white p-6 rounded shadow max-w-2xl">
@@ -79,8 +80,10 @@ export default function Stats() {
         >
           Copy short URL
         </button>
+
+        {/* FIXED — open target via backend short URL */}
         <a
-          href={`${API_BASE}/api/links/${link.code}`}
+          href={shortUrl}
           target="_blank"
           rel="noreferrer"
           className="px-3 py-2 border rounded text-sky-600"
